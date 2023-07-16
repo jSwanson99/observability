@@ -1,0 +1,20 @@
+{
+  "name": "fullstack",
+  "version": "1.0.0",
+  "description": "A fullstack example of a pnpm workspace.",
+  "main": "index.js",
+  "scripts": {
+    "start": "pnpm --stream -r start",
+    "clean": "pnpm -r run clean",
+    "build": "pnpm exec nx run-many --target=build"
+  },
+  "keywords": [],
+  "author": "ashley@codecapers.com.au",
+  "license": "MIT",
+  "dependencies": {
+    "rimraf": "5.0.1"
+  },
+  "devDependencies": {
+    "nx": "16.5.2"
+  }
+}
