@@ -2,11 +2,21 @@
   "name": "server-logging",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "tsc -w",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc",
+    "clean": "rimraf dist && tsc"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "nest-winston": "^1.9.3",
+    "winston": "^3.10.0"
+  },
+  "devDependencies": {
+    "ts-node": "^10.9.1"
+  }
 }

@@ -4,7 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "pnpm --stream -r start",
+    "clean": "rimraf pnpm-lock.yaml && pnpm -r run clean",
+    "build": "pnpm exec nx run-many --target=build"
+  },
+  "dependencies": {
+    "rimraf": "5.0.1"
+  },
+  "devDependencies": {
+    "nx": "16.5.2"
   },
   "keywords": [],
   "author": "",
