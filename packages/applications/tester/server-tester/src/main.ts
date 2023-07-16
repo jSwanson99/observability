@@ -1,6 +1,6 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { WINSTON_MODULE_NEST_PROVIDER, getWinstonLogger } from 'server-logging';
+import { getWinstonLogger } from 'server-logging';
 
 async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
