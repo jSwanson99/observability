@@ -13,9 +13,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@metinseylan/nestjs-opentelemetry": "3.0.0",
     "@opentelemetry/auto-instrumentations-node": "0.38.0",
     "@opentelemetry/context-async-hooks": "1.15.0",
     "@opentelemetry/core": "1.15.0",
+    "@opentelemetry/instrumentation-winston": "0.32.0",
     "@opentelemetry/propagator-b3": "1.15.0",
     "@opentelemetry/sdk-node": "0.41.0",
     "@opentelemetry/sdk-trace-base": "1.15.0",
@@ -23,5 +25,9 @@
   },
   "devDependencies": {
     "ts-node": "^10.9.1"
+  },
+  "peerDependencies": {
+    "nest-winston": "^1.9.3",
+    "winston": "^3.10.0"
   }
 }

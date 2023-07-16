@@ -3,18 +3,15 @@ import {
     W3CTraceContextPropagator,
     W3CBaggagePropagator,
 } from '@opentelemetry/core';
-import {
-    BatchSpanProcessor,
-    ConsoleSpanExporter,
-} from '@opentelemetry/sdk-trace-base';
 import { getNodeAutoInstrumentations } from '@opentelemetry/auto-instrumentations-node';
 import { B3InjectEncoding, B3Propagator } from '@opentelemetry/propagator-b3';
-import { NodeSDK } from '@opentelemetry/sdk-node';
 import { AsyncLocalStorageContextManager } from '@opentelemetry/context-async-hooks';
+import { WinstonInstrumentation } from '@opentelemetry/instrumentation-winston'
+import { NodeSDK } from '@opentelemetry/sdk-node';
 import * as process from 'process';
 
-const otelSDK = new NodeSDK({
-    spanProcessor: new BatchSpanProcessor(new ConsoleSpanExporter()),
+export const otelSDK = new NodeSDK({
+    // spanProcessor: new BatchSpanProcessor(new ConsoleSpanExporter()),
     contextManager: new AsyncLocalStorageContextManager(),
     textMapPropagator: new CompositePropagator({
         propagators: [
@@ -25,10 +22,11 @@ const otelSDK = new NodeSDK({
             }),
         ],
     }),
-    instrumentations: [getNodeAutoInstrumentations()],
+    instrumentations: [
+        getNodeAutoInstrumentations(),
+        new WinstonInstrumentation()
+    ],
 });
-
-export default otelSDK;
 
 // You can also use the shutdown method to gracefully shut down the SDK before process shutdown
 // or on some operating system signal.
