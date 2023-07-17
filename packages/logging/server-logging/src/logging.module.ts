@@ -1,9 +1,9 @@
 import { DynamicModule, MiddlewareConsumer, Module, NestModule } from "@nestjs/common";
+import { WinstonModuleOptions } from "nest-winston";
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { ALS_CONTEXT, alsContextMiddleware, getStore } from "./middleware/request-context";
 import { HttpLoggingInterceptor } from "./interceptors";
 import { getWinstonModule } from "./loggers";
-import { WinstonModuleOptions } from "nest-winston";
 
 @Module({ })
 export class LoggingModule implements NestModule {
@@ -20,7 +20,12 @@ export class LoggingModule implements NestModule {
                     useFactory: getStore
                 }
             ],
-            exports: [],
+            exports: [
+                {
+                    provide: ALS_CONTEXT,
+                    useFactory: getStore
+                }
+            ],
             imports: [
                 getWinstonModule(loggerOptions)
             ],

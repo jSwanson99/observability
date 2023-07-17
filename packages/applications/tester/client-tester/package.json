@@ -5,20 +5,26 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "next dev",
     "lint": "next lint"
   },
   "dependencies": {
+    "@opentelemetry/api": "1.4.1",
+    "@opentelemetry/sdk-trace-base": "1.15.0",
+    "@types/axios": "0.14.0",
     "@types/node": "^20.3.1",
     "@types/react": "18.2.15",
     "@types/react-dom": "18.2.7",
+    "@types/react-query": "1.2.9",
     "autoprefixer": "10.4.14",
+    "axios": "1.4.0",
     "eslint": "^8.42.0",
     "eslint-config-next": "13.4.10",
     "next": "13.4.10",
     "postcss": "8.4.26",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-query": "3.39.3",
     "tailwindcss": "3.3.3",
     "typescript": "^5.1.3"
   }
