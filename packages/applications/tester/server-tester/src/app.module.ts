@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { getWinstonModule } from 'server-logging';
+import { LoggingModule } from 'server-logging';
 
 @Module({
   imports: [
-    getWinstonModule()
+    LoggingModule.register()
   ],
   controllers: [AppController],
   providers: [AppService],

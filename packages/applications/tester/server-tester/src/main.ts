@@ -8,7 +8,6 @@ async function bootstrap() {
     const app = await NestFactory.create(AppModule, {
         logger: getWinstonLogger(),
     });
-    app.useGlobalInterceptors(new HttpLoggingInterceptor());
 
     await app.listen(8080);
 }
